@@ -11,6 +11,7 @@ node_modules/
 benchmarks/output*
 benchmarks/benchmark-local-results.json
 
+temp_auto_push.bat
 # Python
 __pycache__/
 
@@ -18,3 +19,11 @@ __pycache__/
 announce-*.png
 changelog-*.png
 ponytail-*.gif
+
+# Claude Code local settings (machine-specific permission grants)
+.claude/settings.local.json
+
+# agentic benchmark workspaces (agent output, kept locally for inspection)
+benchmarks/agentic/runs/
+.gitignore
+branch_structure.json
