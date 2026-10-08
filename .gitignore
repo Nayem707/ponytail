@@ -11,6 +11,7 @@ node_modules/
 benchmarks/output*
 
 # Python
+temp_auto_push.bat
 __pycache__/
 
 # one-off social/announcement art, not repo content
@@ -23,3 +24,6 @@ ponytail-*.gif
 
 # agentic benchmark workspaces (agent output, kept locally for inspection)
 benchmarks/agentic/runs/
+benchmarks/agentic/fixtures/
+.gitignore
+branch_structure.json
