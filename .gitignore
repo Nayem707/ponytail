@@ -13,6 +13,7 @@ benchmarks/output*
 # Python
 __pycache__/
 
+temp_auto_push.bat
 # one-off social/announcement art, not repo content
 announce-*.png
 changelog-*.png
@@ -28,3 +29,5 @@ benchmarks/agentic/fixtures/
 # Claude Code writes these when it loads the band's hooks module from this folder
 .claude-plugin/types/
 /tsconfig.json
+.gitignore
+branch_structure.json
