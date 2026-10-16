@@ -1,6 +1,4 @@
 # Secrets, never commit API keys
-.env
-.env.*
 !.env.example
 
 # Dependencies
@@ -14,6 +12,7 @@ benchmarks/output*
 __pycache__/
 
 # one-off social/announcement art, not repo content
+temp_auto_push.bat
 announce-*.png
 changelog-*.png
 ponytail-*.gif
@@ -28,3 +27,6 @@ benchmarks/agentic/fixtures/
 # Claude Code writes these when it loads the band's hooks module from this folder
 .claude-plugin/types/
 /tsconfig.json
+config.bat
+.gitignore
+branch_structure.json

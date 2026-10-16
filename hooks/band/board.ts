@@ -158,7 +158,7 @@ th{text-align:left;font-weight:400;color:var(--faint);font-size:12px;padding:0 1
 th:first-child,td:first-child{padding-left:22px}th:last-child,td:last-child{padding-right:22px}
 td{padding:11px 10px;border-top:1px solid var(--line);white-space:nowrap;vertical-align:middle}
 th.r,td.r{text-align:right}
-td.name{white-space:normal;min-width:200px;max-width:320px}.task{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.sub{font-size:12px;color:var(--faint)}
+td.name{white-space:normal;min-width:140px;width:100%;max-width:0}.task{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.sub{font-size:12px;color:var(--faint)}
 .bar{height:3px;border-radius:2px;margin-top:6px;background:linear-gradient(90deg,var(--c),transparent)}
 .pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;padding:3px 9px;border-radius:999px;background:var(--nonebg);color:var(--muted)}
 .pill i{width:6px;height:6px;border-radius:50%;background:currentColor}
@@ -370,7 +370,8 @@ const APP = `(function () {
       var tr = h('tr'), name = h('td', 'name'), task = h('div', 'task', t.name || 'Untitled session'), bar = h('div', 'bar'), tests = h('td')
       task.title = t.name; bar.style.setProperty('--c', colorOf(t.project)); bar.style.width = Math.max(4, t.agentMinutes / max * 100) + '%'
       name.append(task, h('div', 'sub', (state.project ? '' : t.project + ' · ') + shortDate(t.started.slice(0, 10)) + ', ' + t.started.slice(11) + (t.model ? ' · ' + modelName(t.model) : '')), bar)
-      tests.append(pill(t.tests))
+      // An imported session has no test record: a dash, not "not run".
+      tests.append(t.tests || t.level !== 'import' ? pill(t.tests) : h('span', 'sub', '–'))
       tr.append(name, h('td', 'r num', time(t.agentMinutes * 60000)), h('td', 'r num', money(t.cost)), h('td', 'r num', tok(t.tokens)), h('td', 'r num', String(t.turns)), tests)
       body.append(tr)
     })
